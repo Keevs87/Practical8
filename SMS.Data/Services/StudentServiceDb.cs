@@ -172,7 +172,9 @@ public class StudentServiceDb : IStudentService
     {
         // TBC
         // find ticket
-        
+        var ticket = GetTicket(id);
+        db.Remove(ticket);
+        db.SaveChanges();
         
         // remove ticket 
         

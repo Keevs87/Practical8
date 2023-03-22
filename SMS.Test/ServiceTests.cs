@@ -398,12 +398,19 @@ public class ServiceTests
     {
         // TBC
         // arrange
+         var s1 = svc.AddStudent(
+            new Student { Name="XXX", Course="Computing", Email="xxx@email.com", Age=20, Grade=0 }
+        );
+        var t = svc.CreateTicket(s1.Id, "Dummy Ticket");
         
-
         // act
+        var deleted = svc.DeleteTicket(t.Id);
         
-        // assert
-        Assert.True(false); // remove this assertion and replace with correct assertions
+        var reloadStudent = svc.GetStudent(s1.Id);
+        
+        //assert
+        Assert.Equal(0, s1.Tickets.Count);
+
     }
 
 }
